@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conversor .DDS</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+    <script src="/static/js/matrix.js" defer></script>
+</head>
+<body>
+    <canvas id="matrix"></canvas>
+    <h1>Conversor .DDS</h1>
+    <div class="form-container">
+        <h2>Selecione o Arquivo:</h2>
+        <form id="converterForm" action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" id="file" name="file" required>
+            <label for="formatSelect">Baixar como:</label>
+            <select id="formatSelect" name="format" required>
+                <option value="bmp">.bmp</option>
+                <option value="dib">.dib</option>
+                <option value="eps">.eps</option>
+                <option value="gif">.gif</option>
+                <option value="icns">.icns</option>
+                <option value="ico">.ico</option>
+                <option value="im">.im</option>
+                <option value="jpeg">.jpeg</option>
+                <option value="jpg">.jpg</option>
+                <option value="j2k">.j2k</option>
+                <option value="jpx">.jpx</option>
+                <option value="mpo">.mpo</option>
+                <option value="pcx">.pcx</option>
+                <option value="png">.png</option>
+                <option value="ppm">.ppm</option>
+                <option value="sgi">.sgi</option>
+                <option value="spider">.spider</option>
+                <option value="tiff">.tiff</option>
+                <option value="webp">.webp</option>
+                <option value="xbm">.xbm</option>
+            </select>
+            <div class="progress-container">
+                <div id="progressBar" class="progress-bar"></div>
+            </div>
+            <button type="submit" id="convertButton">
+                <span class="button-icon">📄</span> Converter
+            </button>
+        </form>
+    </div>
+</body>
+<script>
+    const form = document.getElementById('converterForm');
+    const fileInput = document.getElementById('file');
+    const progressBar = document.getElementById('progressBar');
+
+    // Simular barra de progresso ao selecionar o arquivo
+    fileInput.addEventListener('change', () => {
+        progressBar.style.width = '0%';
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 20;
+            progressBar.style.width = `${progress}%`;
+            if (progress >= 100) {
+                clearInterval(interval);
+            }
+        }, 300);
+    });
+
+    // Barra de progresso ao enviar o formulário
+    form.addEventListener('submit', (e) => {
+        progressBar.style.width = '0%';
+        let progress = 0;
+        const interval = setInterval(() => {
+            progress += 10;
+            progressBar.style.width = `${progress}%`;
+            if (progress >= 100) {
+                clearInterval(interval);
+            }
+        }, 200);
+    });
+</script>
+</html>
