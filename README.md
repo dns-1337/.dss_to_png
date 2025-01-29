@@ -1,26 +1,20 @@
-# 🎨 Conversor DDS
+# 🎨 Conversor .DDS
 
-Transforme arquivos DDS em formatos populares com facilidade e estilo! 🚀
-
----
-
-## 🚀 **Rápido Começo**
-
-Clique para copiar os comandos 👇:  
+Transforme img.dds em formatos padrão 
 
 ```bash
-# Clone este repositório
+# git clone
 git clone https://github.com/seu-usuario/conversor-dds.git
 cd conversor-dds
 
-# Ative o ambiente virtual (opcional)
+# ambiente virtual
 python -m venv venv
 source venv/bin/activate  # Linux/Mac
 venv\Scripts\activate     # Windows
 
-# Instale as dependências
+# requirements
 pip install -r requirements.txt
 
-# Execute o servidor
+# run server
 python app.py
 
